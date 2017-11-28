@@ -23,7 +23,7 @@
 				<td>${s.excerciseTitle}</td>
 				<td>${s.userName}</td>
 				<td>${s.creationDate}</td>
-				<td><a href="UsersByGroup?groupId=${s.solutionId}">szczegoly</a></td>
+				<td><a href="SolutionById?solutionId=${s.solutionId}">szczegoly</a></td>
 			</tr>
 		</c:forEach>
 	</table>

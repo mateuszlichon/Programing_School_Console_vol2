@@ -1,24 +1,35 @@
 package pl.coderslab.model;
 
+import java.util.Date;
+
 public class Solution {
 	private int id;
-	private String created;
-	private String updated;
+	private Date created;
+	private Date updated;
 	private String description;
 	private int excerciseId;
 	private long usersId;
 	
-	public Solution() {
+/*	public Solution() {
 		this.id = 0;
-		this.created = "";
-		this.updated = "";
+		this.created = Date;
+		this.updated;
 		this.description = "";
 		this.excerciseId = 0;
 		this.usersId = 0l;
+	}*/
+	
+	public Solution(Date created, Date updated, String description, int excerciseId, long usersId) {
+		this.id = 0;
+		this.created = created;
+		this.updated = updated;
+		this.description = description;
+		this.excerciseId = excerciseId;
+		this.usersId = usersId;
 	}
 	
-	public Solution(String created, String updated, String description, int excerciseId, long usersId) {
-		this.id = 0;
+	public Solution(int id, Date created, Date updated, String description, int excerciseId, long usersId) {
+		this.id = id;
 		this.created = created;
 		this.updated = updated;
 		this.description = description;
@@ -34,19 +45,19 @@ public class Solution {
 		this.id = id;
 	}
 
-	public String getCreated() {
+	public Date getCreated() {
 		return created;
 	}
 
-	public void setCreated(String created) {
+	public void setCreated(Date created) {
 		this.created = created;
 	}
 
-	public String getUpdated() {
+	public Date getUpdated() {
 		return updated;
 	}
 
-	public void setUpdated(String updated) {
+	public void setUpdated(Date updated) {
 		this.updated = updated;
 	}
 

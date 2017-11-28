@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<%@page import="pl.coderslab.model.SolutionDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -13,17 +12,13 @@
 	<%@ include file="/WEB-INF/fragments/header.jspf"%>
 	<table>
 		<tr>
-			<td>Tytul zadania</td>
-			<td>Autor rozwiazania</td>
-			<td>Data dodania</td>
+			<td>Nazwa grupy</td>
 			<td>Akcje</td>
 		</tr>
-		<c:forEach var="s" items="${solutions}">
+		<c:forEach var="g" items="${groups}">
 			<tr>
-				<td>${s.excerciseTitle}</td>
-				<td>${s.userName}</td>
-				<td>${s.creationDate}</td>
-				<td><a href="UsersByGroup?groupId=${s.solutionId}">szczegoly</a></td>
+				<td>${g.name}</td>
+				<td><a href="UsersByGroup?groupId=${g.id}">Uzytkownicy</a></td>
 			</tr>
 		</c:forEach>
 	</table>

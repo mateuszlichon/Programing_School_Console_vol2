@@ -23,7 +23,7 @@
 				<td>${u.id}</td>
 				<td>${u.username}</td>
 				<td>${u.email}</td>
-				<td><a href="UsersByGroup?groupId=${u.userGroupId}">szczegoly</a></td>
+				<td><a href="UsersByGroup?groupId=${u.userGroupId}">Grupa ${u.userGroupId}</a></td>
 			</tr>
 		</c:forEach>
 	</table>

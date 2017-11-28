@@ -18,11 +18,11 @@ public class SolutionDtoDao {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		while (rs.next()) {
-			SolutionDto loaded = new SolutionDto();
-			loaded.setExcerciseTitle(rs.getString("excercise.title"));
+			SolutionDto loaded = new SolutionDto(rs.getString("excercise.title"), rs.getString("users.username"), rs.getDate("solution.created"), rs.getInt("solution.id"));
+/*			loaded.setExcerciseTitle(rs.getString("excercise.title"));
 			loaded.setUserName(rs.getString("users.username"));
-	//		loaded.setCreationDate(rs.getDate("solution.created"));
-			loaded.setSolutionId(rs.getInt("solution.id"));
+			loaded.setCreationDate(rs.getDate("solution.created"));
+			loaded.setSolutionId(rs.getInt("solution.id"));*/
 			solutionsDto.add(loaded);
 		}
 		SolutionDto[] uArray = new SolutionDto[solutionsDto.size()];

@@ -10,7 +10,7 @@ import java.util.Date;
 public class SolutionDto {
 	private String excerciseTitle;
 	private String userName;
-//	private Date creationDate;
+	private Date creationDate;
 	private int solutionId;
 
 	
@@ -19,7 +19,7 @@ public class SolutionDto {
 		super();
 		this.excerciseTitle = "";
 		this.userName = "";
-//		this.creationDate = new Date();
+		this.creationDate = new Date();
 		this.solutionId = 0;
 		
 	}
@@ -28,7 +28,7 @@ public class SolutionDto {
 		super();
 		this.excerciseTitle = excerciseTitle;
 		this.userName = userName;
-//		this.creationDate = creationDate;
+		this.creationDate = creationDate;
 		this.solutionId = solutionId;
 	}
 
@@ -48,13 +48,13 @@ public class SolutionDto {
 		this.userName = userName;
 	}
 
-/*	public Date getCreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
-	}*/
+	}
 
 	public int getSolutionId() {
 		return solutionId;

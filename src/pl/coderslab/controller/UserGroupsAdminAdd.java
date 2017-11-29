@@ -19,14 +19,14 @@ import pl.coderslab.model.UserGroup;
 /**
  * Servlet implementation class UserGroups
  */
-@WebServlet("/UserGroupsAdmin")
-public class UserGroupsAdmin extends HttpServlet {
+@WebServlet("/UserGroupsAdminAdd")
+public class UserGroupsAdminAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserGroupsAdmin() {
+    public UserGroupsAdminAdd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -52,6 +52,15 @@ public class UserGroupsAdmin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Connection conn;
+		try {
+			String groupName = request.getParameter("name");
+			conn = DbUtil.getConn();
+			UserGroupDao.createGroup(conn, groupName);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		doGet(request, response);
 	}
 

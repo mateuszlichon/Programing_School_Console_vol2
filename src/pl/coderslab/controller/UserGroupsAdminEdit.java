@@ -10,23 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import pl.coderslab.dao.UserDao;
 import pl.coderslab.dao.UserGroupDao;
 import pl.coderslab.db.DbUtil;
-import pl.coderslab.model.User;
-import pl.coderslab.model.UserGroup;
 
 /**
- * Servlet implementation class UserGroups
+ * Servlet implementation class UserGroupsAdminEdit
  */
-@WebServlet("/UserGroupsAdmin")
-public class UserGroupsAdmin extends HttpServlet {
+@WebServlet("/UserGroupsAdminEdit")
+public class UserGroupsAdminEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserGroupsAdmin() {
+    public UserGroupsAdminEdit() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,24 +32,28 @@ public class UserGroupsAdmin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Connection conn;
-		try {
-			conn = DbUtil.getConn();
-			UserGroup[] groups = UserGroupDao.loadAllGroups(conn);
-			conn.close();
-			request.setAttribute("groups", groups);
-			getServletContext().getRequestDispatcher("/userGroupsAdmin.jsp").forward(request, response);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String id = request.getParameter("groupId");
+		request.setAttribute("id", id);
+		getServletContext().getRequestDispatcher("/userGroupsAdminEdit.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		System.out.println("test");
+		String name = request.getParameter("name");
+		int id = Integer.parseInt(request.getParameter("id"));
+		Connection conn;
+		try {
+			conn = DbUtil.getConn();
+			UserGroupDao.editGroup(conn, name, id);
+			conn.close();
+			getServletContext().getRequestDispatcher("/UserGroupsAdmin").forward(request, response);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

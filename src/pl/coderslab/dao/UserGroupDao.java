@@ -30,14 +30,9 @@ public class UserGroupDao {
 	
 	public static void createGroup(Connection conn, String name) throws SQLException {
 			String sql = "INSERT INTO user_group (name) VALUES (?);";
-//			String gc[] = {"ID"};
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, name);
 			ps.executeUpdate();
-//			ResultSet rs = ps.getGeneratedKeys();
-/*			if (rs.next()) {
-				this.id = rs.getInt(1);
-			}*/
 	}
 
 	public static void editGroup(Connection conn, String name, int id) throws SQLException {

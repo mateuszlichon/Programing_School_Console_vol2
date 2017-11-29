@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
 <p>
 <a href="Home">Strona glowna</a>
-<a href="Users">Uzytkownicy</a>
-<a href="UserGroups">Grupy</a>
-<a href="UsersAdmin">Panel administratora</a>
+<a href="UsersAdmin">Uzytkownicy</a>
+<a href="UserGroupsAdmin">Grupy</a>
 </p>

@@ -15,16 +15,16 @@ import pl.coderslab.db.DbUtil;
 import pl.coderslab.model.User;
 
 /**
- * Servlet implementation class Users
+ * Servlet implementation class UsersAdminDelete
  */
-@WebServlet("/UsersAdmin")
-public class UsersAdmin extends HttpServlet {
+@WebServlet("/UsersAdminDelete")
+public class UsersAdminDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersAdmin() {
+    public UsersAdminDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +33,11 @@ public class UsersAdmin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
 		Connection conn;
 		try {
 			conn = DbUtil.getConn();
+			UserDao.deleteUser(conn, id);
 			User[] users = UserDao.loadAllUsers(conn);
 			conn.close();
 			request.setAttribute("users", users);
@@ -44,24 +46,14 @@ public class UsersAdmin extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Connection conn;
-		try {
-			conn = DbUtil.getConn();
-			String name = request.getParameter("name");
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-			int groupId = Integer.parseInt(request.getParameter("groupId"));
-			UserDao.addUser(conn, name, email, password, groupId);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

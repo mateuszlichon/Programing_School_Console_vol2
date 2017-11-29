@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<%@page import="pl.coderslab.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,22 +13,31 @@
 	<%@ include file="/WEB-INF/fragments/headerAdmin.jspf"%>
 	<table>
 		<tr>
-			<td>Nazwa grupy</td>
+			<td>ID</td>
+			<td>Imie</td>
+			<td>e-mail</td>
 			<td>Akcje</td>
 		</tr>
-		<c:forEach var="g" items="${groups}">
+		<c:forEach var="u" items="${users}">
 			<tr>
-				<td>${g.name}</td>
-				<td><a href="UsersByGroup?groupId=${g.id}">Uzytkownicy</a></td>
-				<td><a href="UserGroupsAdminDelete?groupId=${g.id}">Usun grupe</a></td>
+				<td>${u.id}</td>
+				<td>${u.username}</td>
+				<td>${u.email}</td>
+				<td><a href="UsersByGroup?groupId=${u.userGroupId}">Grupa ${u.userGroupId}</a></td>
+				<td><a href="UsersAdminDelete?id=${u.id}">Usun uzytkownika</a></td>
 			</tr>
 		</c:forEach>
 	</table>
-	<br />
-	<p>Dodaj grupe</p>
-	<form action = 'UserGroupsAdmin' method='post'>
+	<p>Dodaj uzytkownika</p>
+	<form action = 'UsersAdmin' method='post'>
 		Nazwa
 		<input type = 'text' name='name' />
+		email
+		<input type = 'text' name='email' />
+		haslo
+		<input type = 'text' name='password' />
+		numer grupy
+		<input type = 'number' name='groupId' />
 		<input type='submit' />
 	</form>
 	<%@ include file="/WEB-INF/fragments/footerAdmin.jspf"%>

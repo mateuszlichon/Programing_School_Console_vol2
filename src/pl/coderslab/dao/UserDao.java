@@ -74,5 +74,11 @@ public class UserDao {
 			ps.close();
 		}
 	
+	public static void deleteUser(Connection conn, long id) throws SQLException {
+			String sql = "DELETE FROM users WHERE id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setLong(1, id);
+			ps.executeUpdate();
+	}
 	
 }

@@ -17,14 +17,14 @@ import pl.coderslab.model.User;
 /**
  * Servlet implementation class Users
  */
-@WebServlet("/Users")
-public class Users extends HttpServlet {
+@WebServlet("/UsersAdmin")
+public class UsersAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Users() {
+    public UsersAdmin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,7 +39,7 @@ public class Users extends HttpServlet {
 			User[] users = UserDao.loadAllUsers(conn);
 			conn.close();
 			request.setAttribute("users", users);
-			getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/usersAdmin.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

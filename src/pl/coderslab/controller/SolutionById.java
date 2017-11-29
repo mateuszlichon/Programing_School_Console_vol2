@@ -38,6 +38,7 @@ public class SolutionById extends HttpServlet {
 		try {
 			conn = DbUtil.getConn();
 			Solution solution = SolutionDao.loadSolutionById(conn, solutionId);
+			conn.close();
 			request.setAttribute("solution", solution);
 			getServletContext().getRequestDispatcher("/solution.jsp").forward(request, response);
 		} catch (SQLException e) {

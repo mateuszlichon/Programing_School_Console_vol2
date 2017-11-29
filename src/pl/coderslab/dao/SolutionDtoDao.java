@@ -27,7 +27,6 @@ public class SolutionDtoDao {
 		}
 		SolutionDto[] uArray = new SolutionDto[solutionsDto.size()];
 		uArray = solutionsDto.toArray(uArray);
-		System.out.println("solutionDtoDao");
 		return uArray;
 	}
 	

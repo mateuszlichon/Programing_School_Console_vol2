@@ -38,6 +38,7 @@ public class UsersByGroup extends HttpServlet {
 		try {
 			conn = DbUtil.getConn();
 			User[] users = UserDao.loadAllByGruopId(conn, groupId);
+			conn.close();
 			request.setAttribute("users", users);
 			getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
 		} catch (SQLException e) {

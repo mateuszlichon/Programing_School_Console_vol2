@@ -48,4 +48,31 @@ public class UserDao {
 		uArray = users.toArray(uArray);
 		return uArray;
 	}
+	
+	public static void addUser(Connection conn, String userName, String email, String password, int userGroupId) throws SQLException {
+			String sql = "INSERT INTO users (username, email, password, user_group_id) "
+					+ "VALUES(?, ?, ?, ?);";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, userName);
+			ps.setString(2, email);
+			ps.setString(3, password);
+			ps.setInt(4, userGroupId);
+			ps.executeUpdate();
+			ps.close();
+		} 
+
+	public static void editUser(Connection conn, String userName, String email, String password, int userGroupId, long id) throws SQLException {
+		String sql = "UPDATE users SET username = ?, email = ?, password = ?, user_group_id = ? "
+					+ "WHERE id = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, userName);
+			ps.setString(2, email);
+			ps.setString(3, password);
+			ps.setInt(4, userGroupId);
+			ps.setLong(5, id);
+			ps.executeUpdate();
+			ps.close();
+		}
+	
+	
 }

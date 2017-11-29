@@ -38,6 +38,7 @@ public class Home extends HttpServlet {
 		try {
 			Connection conn = DbUtil.getConn();
 			SolutionDto[] solutions = SolutionDtoDao.loadSolutionsWithUsers(conn);
+			conn.close();
 			request.setAttribute("solutions", solutions);
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		} catch (SQLException e) {

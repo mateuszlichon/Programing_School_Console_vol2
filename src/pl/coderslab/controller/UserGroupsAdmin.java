@@ -11,20 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pl.coderslab.dao.UserDao;
+import pl.coderslab.dao.UserGroupDao;
 import pl.coderslab.db.DbUtil;
 import pl.coderslab.model.User;
+import pl.coderslab.model.UserGroup;
 
 /**
- * Servlet implementation class Users
+ * Servlet implementation class UserGroups
  */
-@WebServlet("/Users")
-public class Users extends HttpServlet {
+@WebServlet("/UserGroupsAdmin")
+public class UserGroupsAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Users() {
+    public UserGroupsAdmin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,10 +38,10 @@ public class Users extends HttpServlet {
 		Connection conn;
 		try {
 			conn = DbUtil.getConn();
-			User[] users = UserDao.loadAllUsers(conn);
+			UserGroup[] groups = UserGroupDao.loadAllGroups(conn);
 			conn.close();
-			request.setAttribute("users", users);
-			getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
+			request.setAttribute("groups", groups);
+			getServletContext().getRequestDispatcher("/userGroupsAdmin.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +52,15 @@ public class Users extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Connection conn;
+		try {
+			String groupName = request.getParameter("name");
+			conn = DbUtil.getConn();
+			UserGroupDao.createGroup(conn, groupName);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		doGet(request, response);
 	}
 

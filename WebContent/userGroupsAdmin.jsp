@@ -19,10 +19,17 @@
 			<tr>
 				<td>${g.name}</td>
 				<td><a href="UsersByGroup?groupId=${g.id}">Uzytkownicy</a></td>
+				<td><a href="UserGroupsAdminDelete?groupId=${g.id}">Usun grupe</a></td>
 			</tr>
 		</c:forEach>
 	</table>
-
+	<br />
+	<p>Dodaj grupe</p>
+	<form action = 'UserGroupsAdmin' method='post'>
+		Nazwa
+		<input type = 'text' name='name' />
+		<input type='submit' />
+	</form>
 	<%@ include file="/WEB-INF/fragments/footer.jspf"%>
 </body>
 </html>

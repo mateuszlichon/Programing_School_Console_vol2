@@ -9,31 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%@ include file="/WEB-INF/fragments/headerAdmin.jspf"%>
-	<table>
-		<tr>
-			<td>ID</td>
-			<td>Data utworzenia</td>
-			<td>Ostatnia modyfikacja</td>
-			<td>Opis</td>
-			<td>Powiazane cwiczenia</td>
-			<td>Powiazani uzytkownicy</td>
-		</tr>
-		<c:forEach var="s" items="${solutions}">
-			<tr>
-				<td>${s.id}</td>
-				<td>${s.created}</td>
-				<td>${s.updated}</td>
-				<td>${s.description}</td>
-				<td><a href="ExcerciseById?excerciseId=${s.excerciseId}">Cwiczenie o ID ${s.excerciseId}</a></td>
-				<td><a href="UserById?userId=${s.usersId}">Uzytkownik od ID ${s.usersId}</a></td>
-				<td><a href="SolutionsAdminDelete?solutionId=${s.id}">Usun cwiczenie</a></td>
-				<td><a href="SolutionsAdminEdit?solutionId=${s.id}">Edytuj cwiczenie</a></td>				
-			</tr>
-		</c:forEach>
-	</table>
-		<p>Dodaj rozwiazanie</p>
-	<form action = 'SolutionsAdminAdd' method='post'>
+
+		<p>Edytuj rozwiazanie o ID ${id}</p>
+	<form action = 'SolutionsAdminEdit' method='post'>
 		Data utworzenia
 		<input type = 'date' name='created' />
 		Data modyfikacji
@@ -43,9 +23,11 @@
 		ID powiazanego cwiczenia
 		<input type = 'number' name='excerciseId' />
 		ID autora
-		<input type = 'number' name='usersId' />		
+		<input type = 'number' name='usersId' />
+		<input type = 'hidden' name='solutionId' value='${id}'/>		
 		<input type='submit' />
 	</form>
 	<%@ include file="/WEB-INF/fragments/footerAdmin.jspf"%>
+
 </body>
 </html>

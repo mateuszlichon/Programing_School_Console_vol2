@@ -5,5 +5,7 @@
 <a href="Home">Strona glowna</a>
 <a href="Users">Uzytkownicy</a>
 <a href="UserGroups">Grupy</a>
+<a href="Excercises">Cwiczenia</a>
+<a href="Solutions">Rozwiazania</a>
 <a href="UsersAdmin">Panel administratora</a>
 </p>

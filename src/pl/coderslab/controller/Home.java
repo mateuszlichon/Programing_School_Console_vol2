@@ -36,8 +36,9 @@ public class Home extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			int limit = Integer.parseInt(getServletContext().getInitParameter("number-solutions"));
 			Connection conn = DbUtil.getConn();
-			SolutionDto[] solutions = SolutionDtoDao.loadSolutionsWithUsers(conn);
+			SolutionDto[] solutions = SolutionDtoDao.loadSolutionsWithUsers(conn, limit);
 			conn.close();
 			request.setAttribute("solutions", solutions);
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);

@@ -16,7 +16,7 @@
 	<p>Data ostatniej modyfikazji: ${solution.updated}</p>
 	<p>Opis rozwiazania: ${solution.description}</p>
 	<p>
-		<a href="SolutionById?solutionId=${solution.excerciseId}">Link do
+		<a href="ExcerciseById?excerciseId=${solution.excerciseId}">Link do
 			cwiczenia (do dokonczenia!!!)</a>
 	</p>
 	<p>

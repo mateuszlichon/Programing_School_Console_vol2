@@ -29,6 +29,22 @@ public class UserDao {
 		return uArray;
 	}
 
+	public static User loadUserById(Connection conn, long id) throws SQLException {
+		User loadedUser = new User();
+		String sql = "SELECT * FROM users WHERE id = ?;";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setFloat(1, id);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			loadedUser.setId(rs.getLong("id"));
+			loadedUser.setUsername(rs.getString("username"));
+			loadedUser.setPassword(rs.getString("password"));
+			loadedUser.setEmail(rs.getString("email"));
+			loadedUser.setUserGroupId(rs.getInt("user_group_id"));
+		}
+		return loadedUser;
+	}
+	
 	public static User[] loadAllByGruopId(Connection conn, int groupNumber) throws SQLException {
 		ArrayList<User> users = new ArrayList<>();
 		String sql = "SELECT * FROM users JOIN user_group ON users.user_group_id = user_group.id WHERE user_group.id = ?;";

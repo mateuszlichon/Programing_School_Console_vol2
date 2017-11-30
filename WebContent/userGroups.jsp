@@ -12,11 +12,13 @@
 	<%@ include file="/WEB-INF/fragments/header.jspf"%>
 	<table>
 		<tr>
+			<td>ID</td>
 			<td>Nazwa grupy</td>
 			<td>Akcje</td>
 		</tr>
 		<c:forEach var="g" items="${groups}">
 			<tr>
+				<td>${g.id}</td>
 				<td>${g.name}</td>
 				<td><a href="UsersByGroup?groupId=${g.id}">Uzytkownicy</a></td>
 			</tr>

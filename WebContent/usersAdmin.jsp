@@ -25,11 +25,12 @@
 				<td>${u.email}</td>
 				<td><a href="UsersByGroup?groupId=${u.userGroupId}">Grupa ${u.userGroupId}</a></td>
 				<td><a href="UsersAdminDelete?id=${u.id}">Usun uzytkownika</a></td>
+				<td><a href="UsersAdminEdit?id=${u.id}">Edytuj uzytkownika</a></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<p>Dodaj uzytkownika</p>
-	<form action = 'UsersAdmin' method='post'>
+	<form action = 'UsersAdminAdd' method='post'>
 		Nazwa
 		<input type = 'text' name='name' />
 		email

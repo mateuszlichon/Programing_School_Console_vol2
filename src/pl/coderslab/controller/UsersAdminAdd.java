@@ -15,16 +15,16 @@ import pl.coderslab.db.DbUtil;
 import pl.coderslab.model.User;
 
 /**
- * Servlet implementation class Users
+ * Servlet implementation class UsersAdminAdd
  */
-@WebServlet("/UsersAdmin")
-public class UsersAdmin extends HttpServlet {
+@WebServlet("/UsersAdminAdd")
+public class UsersAdminAdd extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersAdmin() {
+    public UsersAdminAdd() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -50,9 +50,22 @@ public class UsersAdmin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-		// TODO Auto-generated method stub
+		Connection conn;
+		try {
+			conn = DbUtil.getConn();
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
+			int groupId = Integer.parseInt(request.getParameter("groupId"));
+			UserDao.addUser(conn, name, email, password, groupId);
+			conn.close();
+		} catch (SQLException e) {
+			getServletContext().getRequestDispatcher("/usersError.jsp").forward(request, response);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		doGet(request, response);
 	}
+
 
 }

@@ -9,8 +9,8 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/fragments/headerAdmin.jspf"%>
-<h1>Probujesz wykasowac grupe, ktora ma uzytkownikow</h1>
-<p>Najpierw usun uzytkownikow z grupy a nastepnie usun grupe</p>
+<h1>Probujesz dodac uzytkownika do nieistniejacej grupy</h1>
+<p>Sprawdz id dostepnych grup i sprobuj ponownie</p>
 	<%@ include file="/WEB-INF/fragments/footerAdmin.jspf"%>
 </body>
 </html>

@@ -2,8 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <p>
-<a href="Home">Strona glowna</a>
+<p><a href="Home">Strona glowna</a></p>
 <a href="UsersAdmin">Uzytkownicy</a>
 <a href="UserGroupsAdmin">Grupy</a>
+<a href="ExcercisesAdmin">Cwiczenia</a>
 <a href="SolutionsAdmin">Rozwiazania</a>
 </p>

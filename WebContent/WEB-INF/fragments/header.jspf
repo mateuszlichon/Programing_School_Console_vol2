@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<p><a href="Home">Strona glowna</a></p>
 <p>
-<a href="Home">Strona glowna</a>
+
 <a href="Users">Uzytkownicy</a>
 <a href="UserGroups">Grupy</a>
 <a href="Excercises">Cwiczenia</a>
 <a href="Solutions">Rozwiazania</a>
-<a href="UsersAdmin">Panel administratora</a>
+
 </p>

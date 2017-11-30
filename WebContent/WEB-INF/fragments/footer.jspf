@@ -2,3 +2,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <h3>Jestes w panelu uzytkownika</h3>
+<a href="UsersAdmin">Przejdz do panelu administratora</a>

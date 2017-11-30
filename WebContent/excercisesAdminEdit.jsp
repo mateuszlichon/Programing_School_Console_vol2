@@ -11,28 +11,14 @@
 <body>
 
 	<%@ include file="/WEB-INF/fragments/headerAdmin.jspf"%>
-	<table>
-		<tr>
-			<td>ID</td>
-			<td>Tytul</td>
-			<td>Opis</td>
-		</tr>
-		<c:forEach var="e" items="${excercises}">
-			<tr>
-				<td>${e.id}</td>
-				<td>${e.title}</td>
-				<td>${e.description}</td>
-				<td><a href="ExcercisesAdminDelete?excerciseId=${e.id}">Usun cwiczenie</a></td>
-				<td><a href="ExcercisesAdminEdit?excerciseId=${e.id}">Edytuj cwiczenie</a></td>
-			</tr>
-		</c:forEach>
-	</table>
-	<p>Dodaj nowe cwiczenie</p>
-	<form action = 'ExcercisesAdminAdd' method='post'>
+
+	<p>Edytuj cwiczenie o ID ${id}</p>
+	<form action = 'ExcercisesAdminEdit' method='post'>
 		Tytul
 		<input type = 'text' name='title' />
 		Opis
 		<input type = 'text' name='description' />
+		<input type = 'hidden' name='excerciseId' value='${id}'/>
 		<input type='submit' />
 	</form>
 	<%@ include file="/WEB-INF/fragments/footerAdmin.jspf"%>

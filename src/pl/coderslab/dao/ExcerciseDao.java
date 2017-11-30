@@ -60,7 +60,7 @@ public class ExcerciseDao {
 		return eArray;
 	}
 
-	public void deleteExcercise(Connection conn, int id) throws SQLException {
+	public static void deleteExcercise(Connection conn, int id) throws SQLException {
 		String sql = "DELETE FROM excercise WHERE id = ?;";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setLong(1, id);

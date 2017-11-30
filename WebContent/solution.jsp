@@ -20,8 +20,7 @@
 			cwiczenia (do dokonczenia!!!)</a>
 	</p>
 	<p>
-		<a href="UserById?userId=${solution.usersId}">Link do uzytkownika
-			(do dokonczenia!!!)</a>
+		<a href="UserById?userId=${solution.usersId}">Link do uzytkownika</a>
 	</p>
 	<%@ include file="/WEB-INF/fragments/footer.jspf"%>
 </body>

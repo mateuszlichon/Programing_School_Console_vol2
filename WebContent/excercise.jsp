@@ -10,26 +10,12 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/fragments/header.jspf"%>
-	<table>
-		<tr>
-			<td>ID</td>
-			<td>Data utworzenia</td>
-			<td>Ostatnia modyfikacja</td>
-			<td>Opis</td>
-			<td>Powiazane cwiczenia</td>
-			<td>Powiazani uzytkownicy</td>
-		</tr>
-		<c:forEach var="s" items="${solutions}">
-			<tr>
-				<td>${s.id}</td>
-				<td>${s.created}</td>
-				<td>${s.updated}</td>
-				<td>${s.description}</td>
-				<td><a href="ExcerciseById?excerciseId=${s.excerciseId}">Cwiczenie o ID ${s.excerciseId}</a></td>
-				<td><a href="UserById?userId=${s.usersId}">Uzytkownik od ID ${s.usersId}</a></td>
-			</tr>
-		</c:forEach>
-	</table>
+
+	<h1>Szczegoly cwiczenia</h1>
+	<p>Numer identyfikacyjny cwiczenia: ${excercise.id}</p>
+	<p>Tytul cwiczenia: ${excercise.title}</p>
+	<p>Opis cwiczenia: ${excercise.description}</p>
 	<%@ include file="/WEB-INF/fragments/footer.jspf"%>
+
 </body>
 </html>

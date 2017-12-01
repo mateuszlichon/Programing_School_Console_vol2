@@ -11,9 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import pl.coderslab.dao.ExcerciseDao;
 import pl.coderslab.dao.SolutionDao;
+import pl.coderslab.dao.UserDao;
 import pl.coderslab.db.DbUtil;
+import pl.coderslab.model.Excercise;
 import pl.coderslab.model.Solution;
+import pl.coderslab.model.User;
 
 /**
  * Servlet implementation class SolutionsAdminAdd
@@ -38,8 +42,12 @@ public class SolutionsAdminAdd extends HttpServlet {
 		try {
 			conn = DbUtil.getConn();
 			Solution[] solutions = SolutionDao.loadAllSolution(conn);
-			request.setAttribute("solutions", solutions);
+			User[] users = UserDao.loadAllUsers(conn);
+			Excercise[] excercises = ExcerciseDao.loadAllExcercises(conn);
 			conn.close();
+			request.setAttribute("excercises", excercises);
+			request.setAttribute("solutions", solutions);
+			request.setAttribute("users", users);
 			getServletContext().getRequestDispatcher("/solutionsAdmin.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -40,10 +40,18 @@
 		<input type = 'date' name='updated' />
 		Opis
 		<input type = 'text' name='description' />
-		ID powiazanego cwiczenia
-		<input type = 'number' name='excerciseId' />
-		ID autora
-		<input type = 'number' name='usersId' />		
+		Cwiczenie
+	<select name="excerciseId">
+		<c:forEach var="e" items="${excercises}">
+			<option value="${e.id}">${e.title}</option>
+		</c:forEach>
+	</select>
+		Uzytkownik
+	<select name="usersId">
+		<c:forEach var="u" items="${users}">
+			<option value="${u.id}">${u.username}</option>
+		</c:forEach>
+	</select>
 		<input type='submit' />
 	</form>
 	<%@ include file="/WEB-INF/fragments/footerAdmin.jspf"%>

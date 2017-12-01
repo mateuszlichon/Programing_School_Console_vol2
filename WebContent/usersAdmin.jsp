@@ -38,7 +38,11 @@
 		haslo
 		<input type = 'text' name='password' />
 		numer grupy
-		<input type = 'number' name='groupId' />
+		<select name="groupId">
+		<c:forEach var="g" items="${groups}">
+			<option value="${g.id}">${g.name}</option>
+		</c:forEach>
+		</select>
 		<input type='submit' />
 	</form>
 	<%@ include file="/WEB-INF/fragments/footerAdmin.jspf"%>

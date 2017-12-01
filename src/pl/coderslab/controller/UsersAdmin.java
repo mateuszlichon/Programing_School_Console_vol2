@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import pl.coderslab.dao.UserDao;
+import pl.coderslab.dao.UserGroupDao;
 import pl.coderslab.db.DbUtil;
 import pl.coderslab.model.User;
+import pl.coderslab.model.UserGroup;
 
 /**
  * Servlet implementation class Users
@@ -37,8 +39,10 @@ public class UsersAdmin extends HttpServlet {
 		try {
 			conn = DbUtil.getConn();
 			User[] users = UserDao.loadAllUsers(conn);
+			UserGroup[] groups = UserGroupDao.loadAllGroups(conn);
 			conn.close();
 			request.setAttribute("users", users);
+			request.setAttribute("groups", groups);
 			getServletContext().getRequestDispatcher("/usersAdmin.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
